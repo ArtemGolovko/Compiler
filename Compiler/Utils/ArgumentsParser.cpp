@@ -12,7 +12,7 @@ namespace Utils
 			if (argument == "-f" || argument == "--file")
 			{
 				++i;
-				if (argc < i)
+				if (argc <= i)
 					throw std::exception((argument + ": Argument value required").c_str());
 
 				arguments.filename = std::string(argv[i]);
