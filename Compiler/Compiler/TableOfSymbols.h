@@ -5,13 +5,13 @@
 #define CHAR_TABLE_H
 namespace Compiler
 {
-	struct charTableRow
+	struct tableOfSymbolsRow
 	{
 		int offset;
 		char type;
 	};
 
-	extern std::vector<charTableRow> charTable;
+	extern std::vector<tableOfSymbolsRow> tableOfSymbols;
 }
 #endif // CHAR_TABLE_H_
 

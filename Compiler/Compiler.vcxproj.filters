@@ -30,10 +30,10 @@
     <ClCompile Include="Starter\Starter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Compiler\CharTable.cpp">
+    <ClCompile Include="Utils\ArgumentsParser.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\ArgumentsParser.cpp">
+    <ClCompile Include="Compiler\TableOfSymbols.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +47,13 @@
     <ClInclude Include="Compiler\Token.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Compiler\CharTable.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Starter\Starter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ArgumentsParser.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\TableOfSymbols.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
