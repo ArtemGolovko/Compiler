@@ -1,7 +1,8 @@
 #include <iostream>
-#include "Compiler/CharTable.h"
+#include "Compiler/TableOfSymbols.h"
 #include "Compiler/Token.h"
 #include "Compiler/Lexer.h"
+#include "Compiler/TokenDefinition.h"
 #include "Utils/ArgumentsParser.h"
 #include "Utils/Reader.h"
 

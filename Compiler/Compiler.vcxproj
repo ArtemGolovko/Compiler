@@ -153,6 +153,7 @@
     <ClCompile Include="Compiler\Token.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Starter\Starter.cpp" />
+    <ClCompile Include="Compiler\TokenDefinition.cpp" />
     <ClCompile Include="Utils\ArgumentsParser.cpp" />
     <ClCompile Include="Utils\Reader.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Compiler\Lexer.h" />
     <ClInclude Include="Compiler\Token.h" />
     <ClInclude Include="Starter\Starter.h" />
+    <ClInclude Include="Compiler\TokenDefinition.h" />
     <ClInclude Include="Utils\ArgumentsParser.h" />
     <ClInclude Include="Utils\Reader.h" />
   </ItemGroup>

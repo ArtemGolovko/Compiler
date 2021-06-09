@@ -6,7 +6,6 @@
 
 namespace Compiler
 {
-
 	class TokenType
 	{
 	private:
@@ -21,6 +20,8 @@ namespace Compiler
 		bool operator<(const TokenType& other);
 	};
 
+	const TokenType INVALID_TOKEN = TokenType("INVALID_TOKEN");
+
 	class Token
 	{
 	private:
@@ -30,39 +31,7 @@ namespace Compiler
 		Token(TokenType type, std::string value);
 		TokenType getType() const;
 		std::string getValue() const;
-	};
-
-	template<typename T>
-	class TokenDefinition
-	{
-	private:
-		TokenType m_type;
-		T m_representation;
-	public:
-		TokenDefinition(TokenType type, T represantation)
-			: m_type(type), m_representation(represantation)
-		{
-		};
-		TokenType getType() const { return m_type; }
-		T getRepres() const { return m_representation; }
-	};
-
-	class StaticTokenDefinition : public TokenDefinition<std::string>
-	{
-	public:
-		StaticTokenDefinition(TokenType type, std::string represantation)
-			: TokenDefinition<std::string>(type, represantation)
-		{
-		}
-	};
-
-	class DynamicTokenDefinition : public TokenDefinition<std::regex>
-	{
-	public:
-		DynamicTokenDefinition(TokenType type, std::string represantation)
-			: TokenDefinition<std::regex>(type, std::regex(represantation))
-		{
-		}
+		bool isInvalid();
 	};
 }
 #endif // TOKEN_H

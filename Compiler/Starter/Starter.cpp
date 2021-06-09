@@ -20,18 +20,15 @@ namespace Starter
 		const Compiler::TokenType MUL("MUL");
 		const Compiler::TokenType NUM("NUM");
 
-		std::vector<Compiler::StaticTokenDefinition> statics = {
-			Compiler::StaticTokenDefinition(PLUS, "+"),
-			Compiler::StaticTokenDefinition(MINUS, "-"),
-			Compiler::StaticTokenDefinition(DIV, "/"),
-			Compiler::StaticTokenDefinition(MUL, "*"),
+		std::vector<Compiler::TokenDefinition> tokenDefs = {
+			Compiler::make_staticDef(PLUS, "+"),
+			Compiler::make_staticDef(MINUS, "+"),
+			Compiler::make_staticDef(DIV, "/"),
+			Compiler::make_staticDef(MUL, "*"),
+			Compiler::make_dynamicDef(NUM, "[0-9]+")
 		};
 
-		std::vector<Compiler::DynamicTokenDefinition> dynamics = {
-			Compiler::DynamicTokenDefinition(NUM, "[0-9]+")
-		};
-
-		m_lexer = new Compiler::Lexer(statics, dynamics);
+		m_lexer = new Compiler::Lexer(tokenDefs);
 
 		if (m_arguments.filename != "")
 		{
@@ -49,15 +46,16 @@ namespace Starter
 		{
 			runIteractiveMode();
 		}
+		system("PAUSE");
 	}
 
 	void Starter::parse(std::string input)
 	{
 		try {
-			std::vector<Compiler::Token*> lexems(m_lexer->tokenize(input));
+			std::vector<Compiler::Token> lexems(m_lexer->tokenize(input));
 			for (auto it = lexems.cbegin(); it != lexems.cend(); ++it)
 			{
-				std::cout << (*it)->getType().getStrType() << " " << (*it)->getValue() << std::endl;
+				std::cout << it->getType().getStrType() << " " << it->getValue() << std::endl;
 			}
 		}
 		catch (std::exception& ex)

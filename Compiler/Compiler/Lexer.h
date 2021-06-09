@@ -4,6 +4,7 @@
 #include <regex>
 #include <algorithm>
 #include "Token.h"
+#include "TokenDefinition.h"
 
 #ifndef LEXER_H
 #define LEXER_H
@@ -18,20 +19,17 @@ namespace Compiler
 		std::string_view m_source;
 		const std::vector<char> m_spaces{ ' ', '\t', '\n', '\r' };
 
-		std::vector<StaticTokenDefinition> m_statics;
-		std::vector<DynamicTokenDefinition> m_dynamics;
+		std::vector<TokenDefinition> m_tokenDefs;
 	public:
 		Lexer(
-			std::vector<StaticTokenDefinition>& statics,
-			std::vector<DynamicTokenDefinition>& dynamics
+			std::vector<TokenDefinition> tokenDefs
 		);
-		std::vector<Token*> tokenize(const std::string& source);
+		std::vector<Token> tokenize(const std::string& source);
 
 		bool inBounds();
 		void skipSpaces();
 		void cleanUp();
-		Token* dynamicToken();
-		Token* staticToken();
+		Token nextToken();
 	};
 }
 #endif // LEXER_H

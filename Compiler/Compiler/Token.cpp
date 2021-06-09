@@ -48,4 +48,8 @@ namespace Compiler
 		return m_value;
 	}
 
+	bool Token::isInvalid()
+	{
+		return m_type == INVALID_TOKEN;
+	}
 }
